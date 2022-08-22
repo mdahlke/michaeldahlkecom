@@ -16,16 +16,28 @@ import InteractiveTechStack from "@/components/InteractiveTechStack.vue";
 
       <v-col cols="12">
         <interactive-tech-stack
-          :langs="['Vue.js', 'Nuxt.js', 'Vuetify']"
-          title="What I'm loving right now:"
+          title="What I'm loving:"
+          :langs="['Vue.js', 'Nuxt.js', 'Vuetify', 'JS']"
           titlePosition="left"
         />
 
         <interactive-tech-stack
-          :langs="['PHP', 'MySQL', 'HTML', 'CSS']"
-          title="Other languages I like:"
+          title="What I'm liking:"
+          :langs="['Laravel', 'PHP', 'HTML', 'CSS']"
           titlePosition="right"
         />
+
+        <interactive-tech-stack
+          title="What I know:"
+          :langs="['Git', 'APIs', 'CI/CD']"
+          titlePosition="left"
+        />
+
+        <br />
+        <small>
+          (this is not an exhaustive list of everything that I've done, that
+          would be too long)
+        </small>
       </v-col>
     </v-row>
   </v-container>

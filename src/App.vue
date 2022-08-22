@@ -19,6 +19,9 @@
     <v-main>
       <router-view />
     </v-main>
+    <footer id="site-footer" class="text-center">
+      Michael Dahlke &copy; {{ year }}
+    </footer>
   </v-app>
 </template>
 
@@ -30,7 +33,7 @@ export default defineComponent({
 
   data() {
     return {
-      //
+      year: new Date().getFullYear(),
     };
   },
 });
@@ -57,5 +60,13 @@ export default defineComponent({
     color: white;
     text-decoration: none;
   }
+}
+
+#site-footer {
+  margin-top: 80px;
+  padding: 10px;
+  background: rgb(34, 34, 34);
+  color: rgb(94, 94, 94);
+  font-size: 14px;
 }
 </style>
