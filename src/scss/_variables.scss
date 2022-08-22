@@ -1,0 +1,21 @@
+@use 'sass:math';
+
+@function px2vw($size: 60) {
+  $oneVw: 19.2;
+  @return #{math.div($size, $oneVw)}vw;
+}
+
+@function vwclamp($min, $max, $vwpx: $max) {
+  @return clamp(#{$min}px, #{$max}px, #{px2vw($vwpx)});
+}
+
+$red: #e55643;
+$green: #2b9f5e;
+$yellow: #f1c83c;
+$shadow: #533d4a;
+$textShadow: $shadow 1px 1px, $shadow 2px 2px, $shadow 3px 3px, $shadow 4px 4px;
+$textShadowSmall: $shadow .5px .5px, $shadow 1px 1px, $shadow 1.5px 1.5px, $shadow 2px 2px;
+
+@function textShadow($color, $size: 1){
+    @return $color calc(1px * $size) calc(1px * $size), $color calc(2px * $size)  calc(2px * $size), $color calc(3px * $size) calc(3px * $size), $color calc(4px * $size) calc(4px * $size);
+}
