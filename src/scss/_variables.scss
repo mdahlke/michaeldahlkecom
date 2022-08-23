@@ -13,6 +13,12 @@ $red: #e55643;
 $green: #2b9f5e;
 $yellow: #f1c83c;
 $shadow: #533d4a;
+:root {
+    --red: $red;
+    --green: $green;
+    --yellow: $yellow;
+    --shadow: $shadow;
+}
 $textShadow: $shadow 1px 1px, $shadow 2px 2px, $shadow 3px 3px, $shadow 4px 4px;
 $textShadowSmall: $shadow .5px .5px, $shadow 1px 1px, $shadow 1.5px 1.5px, $shadow 2px 2px;
 

@@ -1,10 +1,8 @@
 <template>
   <v-app>
-    <v-app-bar image="https://picsum.photos/1920/1080?random">
+    <v-app-bar :image="headerBg">
       <template v-slot:image>
-        <v-img
-          gradient="to top right, rgba(19,84,122,.8), rgba(128,208,199,.8)"
-        ></v-img>
+        <v-img gradient="to right top, #2b9f5e82, #f1c83c61"></v-img>
       </template>
       <v-app-bar-title class="app-title">
         <router-link to="/">Michael Dahlke</router-link>
@@ -25,18 +23,12 @@
   </v-app>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
+import headerBg from "@/assets/header-bg.jpeg";
 
-export default defineComponent({
-  name: "App",
+console.log({ headerBg });
 
-  data() {
-    return {
-      year: new Date().getFullYear(),
-    };
-  },
-});
+const year = new Date().getFullYear();
 </script>
 
 <style scoped lang="scss">

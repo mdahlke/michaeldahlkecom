@@ -80,7 +80,7 @@ const excerpt = slots
   max-width: 600px;
 
   &:first-of-type {
-    margin-top: 100px;
+    margin-top: 30px;
   }
 }
 

@@ -22,21 +22,39 @@ $skewRight: skew(-30deg) rotate(-10deg) translate(20px, 20px);
 $skewLeft: skew(30deg) rotate(10deg) translate(20px, 20px);
 
 .interactive-tech-stack {
+  flex: 1 1 100%;
   margin-bottom: vwclamp(60, 120);
+  margin-top: 30px;
+  width: 50%;
+  max-width: 400px;
+
+  @media (min-width: 775px) {
+    flex-basis: 50%;
+  }
+  @media (min-width: 960px) {
+    width: 100%;
+  }
 }
 
 .its-title {
   position: relative;
-  top: 20px;
-  margin-top: 30px;
   font-weight: bold;
   font-size: vwclamp(24, 30);
+  z-index: 2;
+
+  &.left {
+    text-align: left;
+    top: 20px;
+  }
+  &.right {
+    text-align: right;
+  }
 }
 
 .tech-item {
   font-weight: bold;
   transform: $skewRight;
-  font-size: 80px;
+  font-size: vwclamp(60, 120, 200);
   text-align: center;
   text-shadow: $textShadow;
   transition: transform 500ms ease-in-out;
@@ -61,24 +79,10 @@ $skewLeft: skew(30deg) rotate(10deg) translate(20px, 20px);
 
 @media (min-width: 630px) {
   .its-title {
-    top: 20px;
-    margin-top: 30px;
-    margin-left: 270px;
     transform: rotate(10deg);
 
     &.left {
-      margin-left: -270px;
       transform: rotate(-10deg);
-    }
-  }
-}
-@media (max-width: 629px) {
-  .its-title {
-    &.left {
-      text-align: left;
-    }
-    &.right {
-      text-align: right;
     }
   }
 }

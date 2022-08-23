@@ -14,7 +14,7 @@ import InteractiveTechStack from "@/components/InteractiveTechStack.vue";
         <p>I'm Michael Dahlke. I'm a Web Developer</p>
       </v-col>
 
-      <v-col cols="12">
+      <v-col cols="12" class="d-flex flex-wrap justify-space-around">
         <interactive-tech-stack
           title="What I'm loving:"
           :langs="['Vue.js', 'Nuxt.js', 'Vuetify', 'JS']"
@@ -32,9 +32,11 @@ import InteractiveTechStack from "@/components/InteractiveTechStack.vue";
           :langs="['Git', 'APIs', 'CI/CD']"
           titlePosition="left"
         />
-
-        <br />
-        <small>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+        <small class="d-block text-center">
           (this is not an exhaustive list of everything that I've done, that
           would be too long)
         </small>
