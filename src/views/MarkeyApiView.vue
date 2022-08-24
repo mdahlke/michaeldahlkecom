@@ -1,18 +1,24 @@
 <script setup lang="ts">
-import BurnRisk from '@/components/BurnRisk.vue';
-import UVIndex from '@/components/UVIndex.vue';
-import AirQuality from '@/components/AirQuality.vue';
+import BurnRisk from "@/components/BurnRisk.vue";
+import UVIndex from "@/components/UVIndex.vue";
+import AirQuality from "@/components/AirQuality.vue";
 </script>
 
 <template>
-	<section class="markey-api">
-		<div class="markey-api__wrap">
-			<BurnRisk />
-			<UVIndex />
-			<AirQuality />
-		</div>
-	</section>
+  <section class="markey-api">
+    <div class="markey-api__wrap">
+      <BurnRisk />
+      <UVIndex />
+      <AirQuality />
+    </div>
+  </section>
 </template>
+
+<style>
+.v-toolbar {
+  display: none !important;
+}
+</style>
 
 <style scoped lang="scss">
 .markey-api {
@@ -31,8 +37,8 @@ import AirQuality from '@/components/AirQuality.vue';
   height: 100%;
 
   > * {
-	flex: 1 1 100%;
-	position: relative;
+    flex: 1 1 100%;
+    position: relative;
   }
 }
 </style>
