@@ -18,7 +18,7 @@ const excerpt = slots
   .default()[0]
   .children.map((e) => e.children)
   .join("")
-  .slice(0, 100);
+  .slice(0, 115);
 </script>
 
 <template>
@@ -39,7 +39,7 @@ const excerpt = slots
           color="cyan accent-4"
           @click="contentVisible = !contentVisible"
         >
-          Learn More
+          More
         </v-btn>
         <v-spacer />
         <external-link :href="url" />

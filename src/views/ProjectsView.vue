@@ -4,6 +4,8 @@ import CodePill from "@/components/CodePill.vue";
 import markeyImage from "@/assets/projects/markeyds.png";
 import rummageCityImage from "@/assets/projects/rummagecity.png";
 import tivoImage from "@/assets/projects/tivo.png";
+import shutboxImage from "@/assets/projects/shutbox.png";
+import taraMusicImage from "@/assets/projects/taramusic.png";
 </script>
 
 <template>
@@ -56,19 +58,28 @@ import tivoImage from "@/assets/projects/tivo.png";
               can continue to add new features.
             </p>
           </expandable-project>
+
           <expandable-project
-            title="Rummage City"
-            url="https://www.rummagecity.com"
-            :image="rummageCityImage"
-            :techStack="['WordPress', 'Vue.js', 'PHP', 'Mapbox API']"
+            title="Shutbox!"
+            url="https://shutbox.michaeldahlke.com/"
+            :image="shutboxImage"
+            :techStack="['Vue.js']"
           >
             <p>
-              Rummage City has been in (once-in-awhile) development for 10
-              years. This is a project that I started to do because I instantly
-              fell in love with coding, but needed a purposeful project to keep
-              learning about building websites. After many, many iterations and
-              starting from scratch, this is where we are at with it now.
-              <code-pill :sm="true">Vue.js</code-pill>
+              You know the classic dice game, right? If you don't, then please
+              take a minute to
+              <a href="https://shutbox.michaeldahlke.com/" target="_blank"
+                >play my virtual</a
+              >
+              version right now!<br />
+              Okay, now that we're back from a little fun, let me tell you about
+              it. This is a fun game that I decided to create out of boredom and
+              wanting to create something with <code-pill sm>Vue.js</code-pill>.
+              I had a blast programming this and I enjoy playing the game too!
+              <br /><br />
+              <small
+                >Next project: move this into <code-pill sm>Vue 3</code-pill> 🤞
+              </small>
             </p>
           </expandable-project>
 
@@ -84,10 +95,47 @@ import tivoImage from "@/assets/projects/tivo.png";
               being a developer and nerdy enough to want to be able to talk to
               my TiVo instead of having to find the remote, I created one.
               <br /><br />
-              <small
-                >(I'm not sure if it works today because I don't have a TiVo
-                anymore 😞)</small
-              >
+              <small>
+                (I'm not sure if it works today because I don't have a TiVo
+                anymore 😞)
+              </small>
+            </p>
+          </expandable-project>
+
+          <expandable-project
+            title="Tara Dahlke Music"
+            url="https://www.taradahlkemusic.com/"
+            :image="taraMusicImage"
+            :techStack="['Vue.js']"
+          >
+            <p>
+              Yup, this is one of my wife's websites. She loves playing the
+              guitar and writing songs. Her family wanted to be able to hear her
+              music but we weren't going to spend the money on a recording booth
+              session. We didn't have professional
+              <small>(or good)</small> recording equipment, but we did have a
+              mic and a spare closet! <br /><br />
+              Anyways, I wanted to make a site that could play her music and
+              have a bio page. The only reason the bio page needed to be
+              separate is because I wanted to make music be playable across site
+              navigation. It was fun doing it and now I know that it's a really
+              easy thing with these fancy new JS libraries/frameworks!
+            </p>
+          </expandable-project>
+
+          <expandable-project
+            title="Rummage City"
+            url="https://www.rummagecity.com"
+            :image="rummageCityImage"
+            :techStack="['WordPress', 'Vue.js', 'PHP', 'Mapbox API']"
+          >
+            <p>
+              Rummage City has been in (once-in-awhile) development for 10
+              years. This is a project that I started to do because I instantly
+              fell in love with coding, but needed a purposeful project to keep
+              learning about building websites. After many, many iterations and
+              starting from scratch, this is where we are at with it now.
+              <code-pill :sm="true">Vue.js</code-pill>
             </p>
           </expandable-project>
         </v-col>
