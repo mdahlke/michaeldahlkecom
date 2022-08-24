@@ -28,6 +28,7 @@ import taraMusicImage from "@/assets/projects/taramusic.png";
             url="https://my.markeyds.com"
             :techStack="[
               'Vue.js',
+              'Vuetify',
               'PHP',
               'FatFreeFramework',
               'MySQL',
