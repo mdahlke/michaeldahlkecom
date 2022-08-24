@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import headerBg from "@/assets/header-bg.jpeg";
+
+const year = new Date().getFullYear();
+</script>
+
 <template>
   <v-app>
     <v-app-bar :image="headerBg">
@@ -9,8 +15,8 @@
       </v-app-bar-title>
       <v-spacer />
       <div class="main-navigation">
-        <router-link to="/">Home</router-link>
-        <router-link to="/projects">Projects</router-link>
+        <router-link to="/">/hey</router-link>
+        <router-link to="/projects">/projects</router-link>
       </div>
     </v-app-bar>
     <v-main>
@@ -21,14 +27,6 @@
     </footer>
   </v-app>
 </template>
-
-<script setup lang="ts">
-import headerBg from "@/assets/header-bg.jpeg";
-
-console.log({ headerBg });
-
-const year = new Date().getFullYear();
-</script>
 
 <style scoped lang="scss">
 .app-title {
