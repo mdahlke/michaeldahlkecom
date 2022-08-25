@@ -20,6 +20,7 @@
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {
+    "@mdi/js": "^7.0.96",
     "@types/node": "^16.11.47",
     "@types/webfontloader": "^1.0.0",
     "@vitejs/plugin-vue": "^3.0.3",
