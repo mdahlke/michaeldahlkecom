@@ -1,7 +1,26 @@
 <script setup lang="ts">
+import { computed, watch } from 'vue';
+import { useRoute } from 'vue-router';
 import headerBg from "@/assets/header-bg.jpeg";
 
+const route = useRoute();
 const year = new Date().getFullYear();
+const routes = {
+  home: [{
+    path: '/',
+    label: '../',
+  }],
+  all: [{
+    path: '/projects',
+    label: '/projects',
+  }]
+}
+
+const contextualRoutes = computed(() => {
+  return route.path === '/' ? routes.all : routes.home;
+});
+// watch(() => route.params.slug, fetchPage)
+
 </script>
 
 <template>
@@ -15,8 +34,9 @@ const year = new Date().getFullYear();
       </v-app-bar-title>
       <v-spacer />
       <div class="main-navigation">
-        <router-link to="/">/hey</router-link>
-        <router-link to="/projects">/projects</router-link>
+        <router-link v-for="r in contextualRoutes" :key="r.path" :to="r.path">
+          {{ r.label }}
+        </router-link>
       </div>
     </v-app-bar>
     <v-main>
