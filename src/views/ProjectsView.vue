@@ -23,36 +23,31 @@ import taraMusicImage from "@/assets/projects/taramusic.png";
       </v-row>
       <v-row>
         <v-col class="flex">
-          <expandable-project
-            title="Markey Digital Signage"
-            url="https://my.markeyds.com"
-            :techStack="[
+          <expandable-project title="Markey Digital Signage" url="https://my.markeyds.com" :techStack="[
               'Vue.js',
               'Vuetify',
               'PHP',
-              'FatFreeFramework',
+              'FatFree Framework',
               'MySQL',
               'HTML/CSS',
               'Google Maps API',
               'Google Calendar API',
               'Instagram API',
               'Open Weather API',
-            ]"
-            :image="markeyImage"
-          >
+            ]" :image="markeyImage">
             <p>
               MarkeyDS is a project that I hold close to my heart. I didn't
               start the project, but I have taken the lead on it over the last 5
               years. This is a project that started without using a framework. I
               know right! It's silly to think now that that could ever be an
               option. Luckily, when I took over the conversion for the backend
-              ws being put in place to use the
+              was already being put in place to use the
               <code-pill sm>Fatfree Framework</code-pill>
               . Unfortunately for me, the conversion wasn't complete and it fell
-              onto me. So after a whole bunch of solid coding sessions I was
+              onto me to complete. So after a whole bunch of solid coding sessions I was
               able finish what others had started. Then a few years later we
               decided to get really crazy and put the frontend into
-              <code-pill sm>Vue.js</code-pill>. This was an incredibly
+              <code-pill sm>Vue.js</code-pill> 🎊. This was an incredibly
               challenging task that required a lot of thought of how to unwrap
               the tightly coupled frontend logic to make it more componentized.
               The conversion is ongoing, but it's in a really good spot where we
@@ -60,36 +55,26 @@ import taraMusicImage from "@/assets/projects/taramusic.png";
             </p>
           </expandable-project>
 
-          <expandable-project
-            title="Shutbox!"
-            url="https://shutbox.michaeldahlke.com/"
-            :image="shutboxImage"
-            :techStack="['Vue.js']"
-          >
+          <expandable-project title="Shutbox!" url="https://shutbox.michaeldahlke.com/" :image="shutboxImage"
+            :techStack="['Vue.js']">
             <p>
               You know the classic dice game, right? If you don't, then please
               take a minute to
-              <a href="https://shutbox.michaeldahlke.com/" target="_blank"
-                >play my virtual</a
-              >
+              <a href="https://shutbox.michaeldahlke.com/" target="_blank">play my virtual</a>
               version right now!<br />
               Okay, now that we're back from a little fun, let me tell you about
               it. This is a fun game that I decided to create out of boredom and
               wanting to create something with <code-pill sm>Vue.js</code-pill>.
               I had a blast programming this and I enjoy playing the game too!
               <br /><br />
-              <small
-                >Next project: move this into <code-pill sm>Vue 3</code-pill> 🤞
+              <small>Next project: move this into <code-pill sm>Vue 3</code-pill> 🤞
               </small>
             </p>
           </expandable-project>
 
-          <expandable-project
-            title="TiVo Google Assistant"
-            url="https://www.wisnet.com/how-to-teach-google-assistant-to-talk-to-your-tivo/"
-            :image="tivoImage"
-            :techStack="['PHP', 'Telnet', 'Dialogflow']"
-          >
+          <expandable-project title="TiVo Google Assistant"
+            url="https://www.wisnet.com/how-to-teach-google-assistant-to-talk-to-your-tivo/" :image="tivoImage"
+            :techStack="['PHP', 'Telnet', 'Dialogflow']">
             <p>
               Back in the day before TiVo was "smart" and we had to create
               things by hand, TiVo didn't have a smart assistant companion. So,
@@ -103,12 +88,8 @@ import taraMusicImage from "@/assets/projects/taramusic.png";
             </p>
           </expandable-project>
 
-          <expandable-project
-            title="Tara Dahlke Music"
-            url="https://www.taradahlkemusic.com/"
-            :image="taraMusicImage"
-            :techStack="['Vue.js']"
-          >
+          <expandable-project title="Tara Dahlke Music" url="https://www.taradahlkemusic.com/" :image="taraMusicImage"
+            :techStack="['Vue.js']">
             <p>
               Yup, this is one of my wife's websites. She loves playing the
               guitar and writing songs. Her family wanted to be able to hear her
@@ -124,12 +105,8 @@ import taraMusicImage from "@/assets/projects/taramusic.png";
             </p>
           </expandable-project>
 
-          <expandable-project
-            title="Rummage City"
-            url="https://www.rummagecity.com"
-            :image="rummageCityImage"
-            :techStack="['WordPress', 'Vue.js', 'PHP', 'Mapbox API']"
-          >
+          <expandable-project title="Rummage City" url="https://www.rummagecity.com" :image="rummageCityImage"
+            :techStack="['WordPress', 'Vue.js', 'PHP', 'Mapbox API']">
             <p>
               Rummage City has been in (once-in-awhile) development for 10
               years. This is a project that I started to do because I instantly
