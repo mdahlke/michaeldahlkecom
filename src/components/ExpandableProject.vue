@@ -14,7 +14,7 @@ const slotRef = ref(null);
 const contentVisible = ref(false);
 const slots = useSlots();
 
-const excerpt = slots
+const excerpt: string = slots
   .default()[0]
   .children.map((e) => e.children)
   .join("")

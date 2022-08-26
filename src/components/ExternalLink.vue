@@ -4,7 +4,7 @@ defineProps<{
   href: string;
   text?: string;
 }>();
-const svgPath = mdiOpenInNew;
+const svgPath: string = mdiOpenInNew;
 </script>
 <template>
   <v-btn color="green" :href="href" target="_blank"

@@ -1,5 +1,21 @@
-<script setup type="ts">
-import {ref, onMounted} from 'vue';
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
+
+type AirQualityObject = {
+  AQI: number,
+  HourObserved: number,
+  Category: {
+    Name: string,
+    Number: number
+  },
+  DateObserved: string,
+  Latitude: number,
+  Longitude: number,
+  LocalTimeZone: string,
+  ParameterName: string,
+  ReportingArea: string,
+  StateCode: string,
+};
 
 const aqi = ref({
     Category: {
@@ -9,19 +25,18 @@ const aqi = ref({
 });
 
 async function load() {
-    const response = await fetch('https://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=53532&distance=25&API_KEY=50CFCFBA-336F-4155-BF6B-1FC5D1296C6C');
-    const data = await response.json();
-    const max = data.reduce(function (prev, current) {
-        return (prev.AQI > current.AQI) ? prev : current
-    }) //returns object
+  const response = await fetch('https://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=53532&distance=25&API_KEY=50CFCFBA-336F-4155-BF6B-1FC5D1296C6C');
+  const data = await response.json();
+  const max: AirQualityObject = data.reduce(function (prev: AirQualityObject, current: AirQualityObject) {
+    return (prev.AQI > current.AQI) ? prev : current
+  });
 
-    console.log({data});
-    aqi.value = max;
+  aqi.value = max;
 }
 
 onMounted(() => {
-    load();
-})
+  load();
+});
 </script>
 
 <template>
