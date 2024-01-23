@@ -6,6 +6,8 @@ import rummageCityImage from "@/assets/projects/rummagecity.png";
 import tivoImage from "@/assets/projects/tivo.png";
 import shutboxImage from "@/assets/projects/shutbox.png";
 import taraMusicImage from "@/assets/projects/taramusic.png";
+
+const yearsDoingIt = (new Date()).getFullYear() - 2012;
 </script>
 
 <template>
@@ -15,7 +17,7 @@ import taraMusicImage from "@/assets/projects/taramusic.png";
         <v-col>
           <h1 class="title-big">Projects</h1>
           <p>
-            Putting in over 8 years of work means I <em>must</em> have done at
+            Putting in {{ yearsDoingIt }}+ years of work means I <em>must</em> have done at
             least one thing to show-off. Turns out I do. Here's a shortlist of
             things that I'm proud off.
           </p>
