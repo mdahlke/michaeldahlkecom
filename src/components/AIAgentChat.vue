@@ -105,11 +105,6 @@ async function submitMessage(raw?: string) {
     <div class="chat-intro">
       <p class="chat-kicker">Portfolio assistant</p>
       <h2>Ask the site what Michael is actually good at</h2>
-      <p>
-        This assistant now sends real requests through a server-side endpoint
-        backed by OpenAI, while staying constrained to the portfolio details
-        provided to it.
-      </p>
     </div>
 
     <div class="chat-shell">
