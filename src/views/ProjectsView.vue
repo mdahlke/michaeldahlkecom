@@ -114,7 +114,7 @@ const valueSignals = [
         </div>
 
         <aside class="hero-panel">
-          <p class="panel-kicker">What this page should signal</p>
+          <p class="panel-kicker">What this work shows</p>
           <ul class="signal-list">
             <li v-for="signal in valueSignals" :key="signal">{{ signal }}</li>
           </ul>

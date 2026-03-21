@@ -90,11 +90,10 @@
             <section class="section-block">
                 <div class="section-heading">
                     <p class="section-kicker">Capabilities</p>
-                    <h2>What the site should communicate faster</h2>
+                    <h2>What I work with most</h2>
                     <p>
-                        The current design has personality, but the message gets buried.
-                        This mockup moves your experience, focus areas, and practical range
-                        into a clearer hierarchy.
+                        These are the tools, systems, and areas of work that come up most often
+                        in the projects I build and maintain.
                     </p>
                 </div>
 
@@ -107,7 +106,7 @@
             <section class="section-block principles-panel">
                 <div class="section-heading compact">
                     <p class="section-kicker">Approach</p>
-                    <h2>Design direction I would keep pushing</h2>
+                    <h2>How I like to work</h2>
                 </div>
 
                 <div class="principles-grid">

@@ -105,6 +105,10 @@ async function submitMessage(raw?: string) {
     <div class="chat-intro">
       <p class="chat-kicker">Portfolio assistant</p>
       <h2>Ask the site what Michael is actually good at</h2>
+      <p>
+        Ask about projects, stack, experience, or the kind of work I enjoy
+        doing most.
+      </p>
     </div>
 
     <div class="chat-shell">
