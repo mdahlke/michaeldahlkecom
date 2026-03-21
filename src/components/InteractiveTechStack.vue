@@ -54,11 +54,12 @@ $skewLeft: skew(30deg) rotate(10deg) translate(20px, 20px);
 .tech-item {
   font-weight: bold;
   transform: $skewRight;
-  font-size: vwclamp(60, 120, 200);
+  font-size: vwclamp(60, 80, 200);
   text-align: center;
   text-shadow: $textShadow;
   transition: transform 500ms ease-in-out;
-  cursor: pointer;
+  white-space: nowrap;
+  cursor: default;
 
   &:hover {
     transform: skew(10deg) rotate(3deg) translate(20px, 20px);

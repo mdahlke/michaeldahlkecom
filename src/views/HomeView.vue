@@ -20,19 +20,25 @@ import InteractiveTechStack from "@/components/InteractiveTechStack.vue";
       <v-col cols="12" class="d-flex flex-wrap justify-space-around">
         <interactive-tech-stack
           title="What I'm loving:"
-          :langs="['Vue.js', 'Nuxt.js', 'Vuetify', 'JS']"
+          :langs="['Laravel', 'Vue.js', 'Nuxt.js', 'Vuetify']"
           titlePosition="left"
         />
 
         <interactive-tech-stack
           title="What I'm liking:"
-          :langs="['Laravel', 'PHP', 'HTML', 'CSS']"
-          titlePosition="right"
+          :langs="['Docker', 'Digital Ocean', 'Infrastructure']"
+          titlePosition="left"
+        />
+
+        <interactive-tech-stack
+          title="What I Hobby:"
+          :langs="['Proxmox', 'n8n', 'FileFlows', 'Media Server', 'ESP32', 'Jellyfin', 'Emby', 'TrueNAS', '3D Printing']"
+          titlePosition="left"
         />
 
         <interactive-tech-stack
           title="What I know:"
-          :langs="['Git', 'APIs', 'CI/CD']"
+          :langs="['PHP', 'MySQL', 'JS', 'Git', 'APIs', 'DNS', 'CI/CD', 'Linux', 'Caddy', 'Secure Coding', 'PCI Compliance', 'Unit Testing', '...' ]"
           titlePosition="left"
         />
       </v-col>
