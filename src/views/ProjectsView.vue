@@ -1,134 +1,402 @@
 <script setup lang="ts">
-import ExpandableProject from "@/components/ExpandableProject.vue";
-import CodePill from "@/components/CodePill.vue";
 import markeyImage from "@/assets/projects/markeyds.png";
 import rummageCityImage from "@/assets/projects/rummagecity.png";
-import tivoImage from "@/assets/projects/tivo.png";
 import shutboxImage from "@/assets/projects/shutbox.png";
 import taraMusicImage from "@/assets/projects/taramusic.png";
+import tivoImage from "@/assets/projects/tivo.png";
+import fantasyDraftImage from "@/assets/projects/fantasydraft.png";
 
-const yearsDoingIt = (new Date()).getFullYear() - 2012;
+const yearsDoingIt = new Date().getFullYear() - 2012;
+
+const projects = [
+  {
+    title: 'Fantasy Draft',
+    url: 'https://draft.michaeldahlke.com/',
+    image: fantasyDraftImage,
+    badge: 'Featured',
+    category: 'Product engineering',
+    summary: 'A fantasy sports platform built to be fast, reliable, and easy to use on draft day.',
+    detail: 'This project is a great example of my strengths in building and maintaining a complex system from backend to frontend using modern web technologies.',
+    techStack: ['Vue.js', 'PHP', 'Laravel', 'MySQL', 'WebSockets', 'DigitalOcean'],
+  },
+  {
+    title: "Markey Digital Signage",
+    url: "https://my.markeyds.com",
+    image: markeyImage,
+    badge: "Featured",
+    category: "Product engineering",
+    summary:
+      "A long-running production platform where I’ve helped lead backend modernization and the gradual move to a more maintainable Vue frontend.",
+    detail:
+      "This project best represents my day-to-day strengths: improving a mature system without freezing delivery, working through legacy coupling, and continuing to ship features while the architecture gets healthier.",
+    techStack: [
+      "Vue.js",
+      "Vuetify",
+      "PHP",
+      "Fat-Free Framework",
+      "MySQL",
+      "Google APIs",
+    ],
+  },
+  {
+    title: "Rummage City",
+    url: "https://www.rummagecity.com",
+    image: rummageCityImage,
+    badge: "Long arc",
+    category: "Independent product",
+    summary:
+      "A project that has evolved across many iterations and stacks, and a good snapshot of how I learn through building something with staying power.",
+    detail:
+      "It started as a way to keep learning with purpose and has become a long-term product sandbox for trying, discarding, and improving ideas over time.",
+    techStack: ["WordPress", "Vue.js", "PHP", "Mapbox API"],
+  },
+  {
+    title: "Shutbox",
+    url: "https://shutbox.michaeldahlke.com/",
+    image: shutboxImage,
+    badge: "Playful build",
+    category: "Frontend app",
+    summary:
+      "A browser version of a dice game built for the fun of making something interactive, polished, and immediately usable.",
+    detail:
+      "This one shows the side of me that likes shipping contained, tangible experiences instead of waiting for a perfect excuse to build.",
+    techStack: ["Vue.js"],
+  },
+  {
+    title: "TiVo Google Assistant",
+    url: "https://www.wisnet.com/how-to-teach-google-assistant-to-talk-to-your-tivo/",
+    image: tivoImage,
+    badge: "Integration",
+    category: "Automation experiment",
+    summary:
+      "A side project from the pre-smart-device era that connected voice control to a TiVo setup through custom glue code.",
+    detail:
+      "It is old, a little nerdy, and still useful as a signal: I like making systems talk to each other when they obviously should have done that already.",
+    techStack: ["PHP", "Telnet", "Dialogflow"],
+  },
+  {
+    title: "Tara Dahlke Music",
+    url: "https://www.taradahlkemusic.com/",
+    image: taraMusicImage,
+    badge: "Personal site",
+    category: "Media experience",
+    summary:
+      "A music-focused site built to make songs easy to listen to and navigate, while keeping the experience light and personal.",
+    detail:
+      "This project is less about technical complexity and more about shaping the experience around a real person and a real use case.",
+    techStack: ["Vue.js"],
+  },
+];
+
+const featuredProject = projects[0];
+const secondaryProjects = projects.slice(1);
+
+const valueSignals = [
+  "Long-running products and legacy modernization",
+  "Frontend, backend, infrastructure, and API integration",
+  "Independent builds with enough personality to feel human",
+];
 </script>
 
 <template>
   <section class="projects-view">
-    <v-container>
-      <v-row class="text-center">
-        <v-col>
-          <h1 class="title-big">Projects</h1>
-          <p>
-            Putting in {{ yearsDoingIt }}+ years of work means I <em>must</em> have done at
-            least one thing to show-off. Turns out I do. Here's a shortlist of
-            things that I'm proud off.
+    <v-container class="projects-container">
+      <section class="projects-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Selected work</p>
+          <h1 class="title-big">Projects that show how I actually build</h1>
+          <p class="hero-lead">
+            {{ yearsDoingIt }}+ years of work leaves behind more than screenshots.
+            These are the projects that best show the kind of systems I enjoy,
+            the problems I tend to take on, and the level of ownership I’m
+            comfortable carrying.
           </p>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col class="flex">
-          <expandable-project title="Markey Digital Signage" url="https://my.markeyds.com" :techStack="[
-              'Vue.js',
-              'Vuetify',
-              'PHP',
-              'FatFree Framework',
-              'MySQL',
-              'HTML/CSS',
-              'Google Maps API',
-              'Google Calendar API',
-              'Instagram API',
-              'Open Weather API',
-            ]" :image="markeyImage">
-            <p>
-              MarkeyDS is a project that I hold close to my heart. I didn't
-              start the project, but I have taken the lead on it over the last 5
-              years. This is a project that started without using a framework. I
-              know right! It's silly to think now that that could ever be an
-              option. Luckily, when I took over the conversion for the backend
-              was already being put in place to use the
-              <code-pill sm>Fatfree Framework</code-pill>
-              . Unfortunately for me, the conversion wasn't complete and it fell
-              onto me to complete. So after a whole bunch of solid coding sessions I was
-              able finish what others had started. Then a few years later we
-              decided to get really crazy and put the frontend into
-              <code-pill sm>Vue.js</code-pill> 🎊. This was an incredibly
-              challenging task that required a lot of thought of how to unwrap
-              the tightly coupled frontend logic to make it more componentized.
-              The conversion is ongoing, but it's in a really good spot where we
-              can continue to add new features.
-            </p>
-          </expandable-project>
+        </div>
 
-          <expandable-project title="Shutbox!" url="https://shutbox.michaeldahlke.com/" :image="shutboxImage"
-            :techStack="['Vue.js']">
-            <p>
-              You know the classic dice game, right? If you don't, then please
-              take a minute to
-              <a href="https://shutbox.michaeldahlke.com/" target="_blank">play my virtual</a>
-              version right now!<br />
-              Okay, now that we're back from a little fun, let me tell you about
-              it. This is a fun game that I decided to create out of boredom and
-              wanting to create something with <code-pill sm>Vue.js</code-pill>.
-              I had a blast programming this and I enjoy playing the game too!
-              <br /><br />
-              <small>Next project: move this into <code-pill sm>Vue 3</code-pill> 🤞
-              </small>
-            </p>
-          </expandable-project>
+        <aside class="hero-panel">
+          <p class="panel-kicker">What this page should signal</p>
+          <ul class="signal-list">
+            <li v-for="signal in valueSignals" :key="signal">{{ signal }}</li>
+          </ul>
+        </aside>
+      </section>
 
-          <expandable-project title="TiVo Google Assistant"
-            url="https://www.wisnet.com/how-to-teach-google-assistant-to-talk-to-your-tivo/" :image="tivoImage"
-            :techStack="['PHP', 'Telnet', 'Dialogflow']">
-            <p>
-              Back in the day before TiVo was "smart" and we had to create
-              things by hand, TiVo didn't have a smart assistant companion. So,
-              being a developer and nerdy enough to want to be able to talk to
-              my TiVo instead of having to find the remote, I created one.
-              <br /><br />
-              <small>
-                (I'm not sure if it works today because I don't have a TiVo
-                anymore 😞)
-              </small>
-            </p>
-          </expandable-project>
+      <section class="featured-project">
+        <div class="project-image-wrap">
+          <img
+            class="project-image"
+            :src="featuredProject.image"
+            :alt="`${featuredProject.title} preview`"
+          />
+        </div>
 
-          <expandable-project title="Tara Dahlke Music" url="https://www.taradahlkemusic.com/" :image="taraMusicImage"
-            :techStack="['Vue.js']">
-            <p>
-              Yup, this is one of my wife's websites. She loves playing the
-              guitar and writing songs. Her family wanted to be able to hear her
-              music but we weren't going to spend the money on a recording booth
-              session. We didn't have professional
-              <small>(or good)</small> recording equipment, but we did have a
-              mic and a spare closet! <br /><br />
-              Anyways, I wanted to make a site that could play her music and
-              have a bio page. The only reason the bio page needed to be
-              separate is because I wanted to make music be playable across site
-              navigation. It was fun doing it and now I know that it's a really
-              easy thing with these fancy new JS libraries/frameworks!
-            </p>
-          </expandable-project>
+        <div class="project-copy">
+          <p class="project-badge">{{ featuredProject.badge }}</p>
+          <h2>{{ featuredProject.title }}</h2>
+          <p class="project-category">{{ featuredProject.category }}</p>
+          <p class="project-summary">{{ featuredProject.summary }}</p>
+          <p class="project-detail">{{ featuredProject.detail }}</p>
 
-          <expandable-project title="Rummage City" url="https://www.rummagecity.com" :image="rummageCityImage"
-            :techStack="['WordPress', 'Vue.js', 'PHP', 'Mapbox API']">
-            <p>
-              Rummage City has been in (once-in-awhile) development for 10
-              years. This is a project that I started to do because I instantly
-              fell in love with coding, but needed a purposeful project to keep
-              learning about building websites. After many, many iterations and
-              starting from scratch, this is where we are at with it now.
-              <code-pill :sm="true">Vue.js</code-pill>
-            </p>
-          </expandable-project>
-        </v-col>
-      </v-row>
+          <div class="project-stack">
+            <span v-for="item in featuredProject.techStack" :key="item" class="stack-pill">
+              {{ item }}
+            </span>
+          </div>
+
+          <a class="project-link" :href="featuredProject.url" target="_blank" rel="noreferrer">
+            Visit project
+          </a>
+        </div>
+      </section>
+
+      <section class="project-grid">
+        <article v-for="project in secondaryProjects" :key="project.title" class="project-card">
+          <div class="project-card-image">
+            <img :src="project.image" :alt="`${project.title} preview`" />
+          </div>
+
+          <div class="project-card-copy">
+            <p class="project-badge">{{ project.badge }}</p>
+            <h2>{{ project.title }}</h2>
+            <p class="project-category">{{ project.category }}</p>
+            <p class="project-summary">{{ project.summary }}</p>
+            <p class="project-detail">{{ project.detail }}</p>
+
+            <div class="project-stack compact">
+              <span v-for="item in project.techStack" :key="item" class="stack-pill">
+                {{ item }}
+              </span>
+            </div>
+
+            <a class="project-link subtle" :href="project.url" target="_blank" rel="noreferrer">
+              Open project
+            </a>
+          </div>
+        </article>
+      </section>
     </v-container>
   </section>
 </template>
 
 <style scoped lang="scss">
+.projects-view {
+  padding: 32px 0 72px;
+}
+
+.projects-container {
+  display: grid;
+  gap: 30px;
+}
+
+.projects-hero,
+.featured-project,
+.project-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+    rgba(10, 14, 14, 0.72);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22);
+}
+
+.projects-hero {
+  display: grid;
+  gap: 24px;
+  overflow: hidden;
+  padding: 28px;
+
+  @media (min-width: 980px) {
+    grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.85fr);
+    padding: 38px;
+  }
+}
+
+.projects-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(229, 86, 67, 0.15), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(43, 159, 94, 0.16), transparent 34%);
+  pointer-events: none;
+}
+
+.hero-copy,
+.hero-panel,
+.project-copy,
+.project-card-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow,
+.panel-kicker,
+.project-badge {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .title-big {
-  font-size: vwclamp(60, 180);
-  font-weight: bold;
-  text-shadow: textShadow(#333);
-  color: $red;
+  color: #fff8eb;
+  font-size: clamp(3rem, 9vw, 5.9rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+  margin-top: 10px;
+  max-width: 11ch;
+}
+
+.hero-lead {
+  color: rgba(255, 248, 235, 0.8);
+  font-size: clamp(1.05rem, 2.4vw, 1.28rem);
+  line-height: 1.6;
+  margin-top: 18px;
+  max-width: 58ch;
+}
+
+.hero-panel {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 22px;
+}
+
+.signal-list {
+  color: rgba(255, 248, 235, 0.76);
+  display: grid;
+  gap: 14px;
+  list-style: none;
+  margin-top: 18px;
+  padding: 0;
+}
+
+.signal-list li {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 14px;
+}
+
+.signal-list li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.featured-project {
+  display: grid;
+  gap: 0;
+  overflow: hidden;
+
+  @media (min-width: 1080px) {
+    grid-template-columns: minmax(360px, 1fr) minmax(0, 1fr);
+  }
+}
+
+.project-image-wrap,
+.project-card-image {
+  background: rgba(255, 255, 255, 0.03);
+  min-height: 100%;
+}
+
+.project-image,
+.project-card-image img {
+  display: block;
+  height: 100%;
+  min-height: 280px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.project-copy,
+.project-card-copy {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  padding: 26px;
+}
+
+.project-copy h2,
+.project-card-copy h2 {
+  color: #fff8eb;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.project-card-copy h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.project-category {
+  color: $yellow;
+  font-weight: 700;
+}
+
+.project-summary {
+  color: rgba(255, 248, 235, 0.84);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.project-detail {
+  color: rgba(255, 255, 255, 0.66);
+  line-height: 1.7;
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.stack-pill {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff8eb;
+  display: inline-flex;
+  font-size: 0.88rem;
+  font-weight: 700;
+  min-height: 36px;
+  align-items: center;
+  padding: 0 14px;
+}
+
+.project-link {
+  color: #08110c;
+  background: linear-gradient(135deg, $green, #5fcf82);
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  margin-top: 8px;
+  min-height: 48px;
+  padding: 0 22px;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.project-link.subtle {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff8eb;
+}
+
+.project-grid {
+  display: grid;
+  gap: 22px;
+
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.project-card {
+  display: grid;
+  overflow: hidden;
 }
 </style>
