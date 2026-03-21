@@ -32,6 +32,19 @@ npm install
 npm run dev
 ```
 
+### Real AI Chat Setup
+
+The portfolio chat uses a Netlify Function so the OpenAI API key stays on the
+server.
+
+1. Copy `.env.example` to `.env` in Netlify or add the same variables in the Netlify dashboard.
+2. Set `OPENAI_API_KEY`.
+3. Optionally set `OPENAI_MODEL` if you want something other than `gpt-5-mini`.
+4. Deploy on Netlify so `/api/portfolio-chat` resolves to `netlify/functions/portfolio-chat.js`.
+
+For local testing of the real chat flow, run the site through Netlify Dev rather
+than plain Vite so the function route is available.
+
 ### Type-Check, Compile and Minify for Production
 
 ```sh

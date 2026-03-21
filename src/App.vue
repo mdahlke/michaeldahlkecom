@@ -25,9 +25,9 @@ const contextualRoutes = computed(() => {
 
 <template>
   <v-app>
-    <v-app-bar :image="headerBg">
+    <v-app-bar class="site-bar" :image="headerBg">
       <template v-slot:image>
-        <v-img gradient="to right top, #2b9f5e82, #f1c83c61"></v-img>
+        <v-img gradient="to right top, #133121d9, #533d4ab8"></v-img>
       </template>
       <v-app-bar-title class="app-title">
         <router-link to="/">Michael Dahlke</router-link>
@@ -39,7 +39,7 @@ const contextualRoutes = computed(() => {
         </router-link>
       </div>
     </v-app-bar>
-    <v-main>
+    <v-main class="site-main">
       <router-view />
     </v-main>
     <footer id="site-footer" class="text-center">
@@ -49,33 +49,49 @@ const contextualRoutes = computed(() => {
 </template>
 
 <style scoped lang="scss">
+.site-bar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+}
+
 .app-title {
   a {
     color: white;
-    text-shadow: $textShadowSmall;
+    font-family: "Avenir Next", "Segoe UI", sans-serif;
+    letter-spacing: 0.04em;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
     text-decoration: none;
+    text-transform: uppercase;
   }
 }
 
 .main-navigation {
-  margin-right: 30px;
-  font-size: vwclamp(18, 24, 48);
-  font-weight: bold;
-  text-shadow: $textShadowSmall;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 22px;
+  font-size: 0.95rem;
+  font-weight: 700;
   a {
-    padding: 5px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    padding: 8px 14px;
     color: white;
     text-decoration: none;
   }
 }
 
+.site-main {
+  padding-top: 24px;
+}
+
 #site-footer {
-  margin-top: 80px;
-  padding: 10px;
-  background: rgb(34, 34, 34);
-  color: rgb(94, 94, 94);
-  font-size: 14px;
+  margin-top: 32px;
+  padding: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(8, 10, 10, 0.88);
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 13px;
 }
 </style>

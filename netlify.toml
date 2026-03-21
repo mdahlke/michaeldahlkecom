@@ -1,0 +1,12 @@
+[build]
+  functions = "netlify/functions"
+
+[dev]
+  command = "npm run dev"
+  targetPort = 5173
+  port = 8888
+
+[[redirects]]
+  from = "/api/portfolio-chat"
+  to = "/.netlify/functions/portfolio-chat"
+  status = 200

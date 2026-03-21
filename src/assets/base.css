@@ -34,6 +34,13 @@
   --color-text: var(--vt-c-text-light-1);
 
   --section-gap: 160px;
+  --site-bg: #091011;
+  --site-panel: rgba(11, 17, 18, 0.78);
+  --site-copy: rgba(255, 248, 235, 0.88);
+  --site-muted: rgba(255, 248, 235, 0.68);
+  --site-green: #2b9f5e;
+  --site-yellow: #f1c83c;
+  --site-shadow: #533d4a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -61,13 +68,15 @@
 
 body {
   min-height: 100vh;
-  color: var(--color-text);
-  background: var(--color-background);
+  color: var(--site-copy);
+  background:
+    radial-gradient(circle at top, rgba(43, 159, 94, 0.14), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(241, 200, 60, 0.08), transparent 22%),
+    linear-gradient(180deg, #101817 0%, #091011 100%);
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 15px;
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

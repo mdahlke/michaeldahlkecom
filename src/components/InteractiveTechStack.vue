@@ -11,80 +11,80 @@ defineProps<{
 <template>
   <section class="interactive-tech-stack">
     <h3 v-if="title" class="its-title" :class="titlePosition">{{ title }}</h3>
-    <div v-for="item in langs" :key="item" class="tech-item">
-      {{ item }}
+    <div class="tech-grid">
+      <div v-for="item in langs" :key="item" class="tech-item">
+        {{ item }}
+      </div>
     </div>
   </section>
 </template>
 
 <style scoped lang="scss">
-$skewRight: skew(-30deg) rotate(-10deg) translate(20px, 20px);
-$skewLeft: skew(30deg) rotate(10deg) translate(20px, 20px);
-
 .interactive-tech-stack {
-  flex: 1 1 100%;
-  margin-bottom: vwclamp(60, 120);
-  margin-top: 30px;
-  width: 50%;
-  max-width: 400px;
-
-  @media (min-width: 775px) {
-    flex-basis: 50%;
-  }
-  @media (min-width: 960px) {
-    width: 100%;
-  }
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+    rgba(255, 255, 255, 0.02);
+  min-height: 100%;
+  overflow: hidden;
+  padding: 22px;
 }
 
 .its-title {
-  position: relative;
-  font-weight: bold;
-  font-size: vwclamp(24, 30);
-  z-index: 2;
+  color: #fff8eb;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
 
   &.left {
     text-align: left;
-    top: 20px;
   }
+
   &.right {
     text-align: right;
   }
 }
 
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .tech-item {
-  font-weight: bold;
-  transform: $skewRight;
-  font-size: vwclamp(60, 80, 200);
-  text-align: center;
-  text-shadow: $textShadow;
-  transition: transform 500ms ease-in-out;
-  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: 999px;
   cursor: default;
+  display: inline-flex;
+  font-size: 0.94rem;
+  font-weight: 700;
+  min-height: 38px;
+  align-items: center;
+  padding: 0 14px;
+  transition: transform 160ms ease, border-color 160ms ease, background-color 160ms ease;
 
   &:hover {
-    transform: skew(10deg) rotate(3deg) translate(20px, 20px);
+    transform: translateY(-2px);
   }
-}
 
-.tech-item {
   &:nth-child(3n + 1) {
-    color: $red;
+    background: rgba(229, 86, 67, 0.12);
+    border-color: rgba(229, 86, 67, 0.22);
+    color: #ffb2a7;
   }
+
   &:nth-child(3n + 2) {
-    color: $green;
+    background: rgba(43, 159, 94, 0.12);
+    border-color: rgba(43, 159, 94, 0.22);
+    color: #9df1bc;
   }
+
   &:nth-child(3n + 3) {
-    color: $yellow;
-  }
-}
-
-@media (min-width: 630px) {
-  .its-title {
-    transform: rotate(10deg);
-
-    &.left {
-      transform: rotate(-10deg);
-    }
+    background: rgba(241, 200, 60, 0.12);
+    border-color: rgba(241, 200, 60, 0.22);
+    color: #ffe99c;
   }
 }
 </style>
