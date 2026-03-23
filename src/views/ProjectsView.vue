@@ -1,23 +1,51 @@
 <script setup lang="ts">
+import fantasyDraftImage from "@/assets/projects/fantasydraft.png";
 import markeyImage from "@/assets/projects/markeyds.png";
 import rummageCityImage from "@/assets/projects/rummagecity.png";
 import shutboxImage from "@/assets/projects/shutbox.png";
 import taraMusicImage from "@/assets/projects/taramusic.png";
 import tivoImage from "@/assets/projects/tivo.png";
-import fantasyDraftImage from "@/assets/projects/fantasydraft.png";
 
 const yearsDoingIt = new Date().getFullYear() - 2012;
+const githubUrl = "https://github.com/mdahlke";
+const emailUser = ["madahlke", "27"].join("");
+const emailDomain = ["gmail", "com"].join(".");
+const emailSubject = encodeURIComponent("Project inquiry from michaeldahlke.com");
+const emailHref = `mailto:${emailUser}@${emailDomain}?subject=${emailSubject}`;
+const openEmail = () => {
+  window.location.href = emailHref;
+};
+
+const experienceHighlights = [
+  {
+    title: "Large ticketing and live-event systems",
+    body: "Experience working on platforms where inventory, checkout, support workflows, payment routing, and product reliability all intersect.",
+  },
+  {
+    title: "Legacy PHP modernization",
+    body: "Hands-on migration work in mature codebases, including moving older PHP applications forward without freezing feature delivery.",
+  },
+  {
+    title: "Production debugging from app to infra",
+    body: "Homelab and container work sharpened the way I debug: I’m comfortable following a problem through code, services, storage, networking, and deployment boundaries.",
+  },
+];
 
 const projects = [
   {
-    title: 'Fantasy Draft',
-    url: 'https://draft.michaeldahlke.com/',
+    title: "Fantasy Draft",
+    url: "https://draft.michaeldahlke.com/",
     image: fantasyDraftImage,
-    badge: 'Featured',
-    category: 'Product engineering',
-    summary: 'A fantasy sports platform built to be fast, reliable, and easy to use on draft day.',
-    detail: 'This project is a great example of my strengths in building and maintaining a complex system from backend to frontend using modern web technologies.',
-    techStack: ['Vue.js', 'PHP', 'Laravel', 'MySQL', 'WebSockets', 'DigitalOcean'],
+    badge: "Featured",
+    category: "Product engineering",
+    summary: "A fantasy sports platform built to be fast, reliable, and easy to use on draft day.",
+    detail: "This project is a strong example of end-to-end product work: backend, frontend, real-time behavior, and the pressure of users showing up all at once.",
+    proof: [
+      "Full-stack ownership across backend, frontend, and deployment.",
+      "Real-time draft behavior and state changes without sacrificing usability.",
+      "Built to feel dependable under the exact conditions when people stop being patient.",
+    ],
+    techStack: ["Vue.js", "PHP", "Laravel", "MySQL", "WebSockets", "DigitalOcean"],
   },
   {
     title: "Markey Digital Signage",
@@ -28,7 +56,12 @@ const projects = [
     summary:
       "A long-running production platform where I’ve helped lead backend modernization and the gradual move to a more maintainable Vue frontend.",
     detail:
-      "This project best represents my day-to-day strengths: improving a mature system without freezing delivery, working through legacy coupling, and continuing to ship features while the architecture gets healthier.",
+      "This project best represents day-to-day senior engineering work: improving a mature system without freezing delivery, working through legacy coupling, shipping new product work, and carrying complicated payment-adjacent behavior that was never designed to be elegant.",
+    proof: [
+      "Steady modernization inside a live product with legacy constraints.",
+      "Frontend migration work paired with backend cleanup instead of isolated rewrites.",
+      "Included substantial PHP compatibility work while preserving delivery velocity.",
+    ],
     techStack: [
       "Vue.js",
       "Vuetify",
@@ -48,6 +81,11 @@ const projects = [
       "A project that has evolved across many iterations and stacks, and a good snapshot of how I learn through building something with staying power.",
     detail:
       "It started as a way to keep learning with purpose and has become a long-term product sandbox for trying, discarding, and improving ideas over time.",
+    proof: [
+      "Long-arc ownership across multiple technical directions and product iterations.",
+      "A practical sandbox for testing ideas instead of theorizing about them.",
+      "Shows staying power, not just launch energy.",
+    ],
     techStack: ["WordPress", "Vue.js", "PHP", "Mapbox API"],
   },
   {
@@ -60,6 +98,11 @@ const projects = [
       "A browser version of a dice game built for the fun of making something interactive, polished, and immediately usable.",
     detail:
       "This one shows the side of me that likes shipping contained, tangible experiences instead of waiting for a perfect excuse to build.",
+    proof: [
+      "Fast, focused interaction design with no heavy setup cost for the user.",
+      "A small project, but one that still benefits from polish and clarity.",
+      "Proof that I enjoy shipping complete experiences, not just enterprise plumbing.",
+    ],
     techStack: ["Vue.js"],
   },
   {
@@ -72,6 +115,11 @@ const projects = [
       "A side project from the pre-smart-device era that connected voice control to a TiVo setup through custom glue code.",
     detail:
       "It is old, a little nerdy, and still useful as a signal: I like making systems talk to each other when they obviously should have done that already.",
+    proof: [
+      "Early systems integration work before consumer tooling made it easy.",
+      "The recurring pattern in my projects: bridge the gap between separate systems.",
+      "A good example of curiosity turning into working software.",
+    ],
     techStack: ["PHP", "Telnet", "Dialogflow"],
   },
   {
@@ -84,6 +132,11 @@ const projects = [
       "A music-focused site built to make songs easy to listen to and navigate, while keeping the experience light and personal.",
     detail:
       "This project is less about technical complexity and more about shaping the experience around a real person and a real use case.",
+    proof: [
+      "Built around an actual audience and a concrete content goal.",
+      "A reminder that good software is often about tone and fit, not just feature count.",
+      "Shows range beyond systems-heavy application work.",
+    ],
     techStack: ["Vue.js"],
   },
 ];
@@ -92,9 +145,9 @@ const featuredProject = projects[0];
 const secondaryProjects = projects.slice(1);
 
 const valueSignals = [
-  "Long-running products and legacy modernization",
-  "Frontend, backend, infrastructure, and API integration",
-  "Independent builds with enough personality to feel human",
+  "Large, evolving systems instead of throwaway demos",
+  "Payment flows, integrations, and operationally sensitive failure cases",
+  "Frontend, backend, infrastructure, and modernization in one lane",
 ];
 </script>
 
@@ -106,10 +159,10 @@ const valueSignals = [
           <p class="eyebrow">Selected work</p>
           <h1 class="title-big">Projects that show how I actually build</h1>
           <p class="hero-lead">
-            {{ yearsDoingIt }}+ years of work leaves behind more than screenshots.
-            These are the projects that best show the kind of systems I enjoy,
-            the problems I tend to take on, and the level of ownership I’m
-            comfortable carrying.
+            {{ yearsDoingIt }}+ years of work should add up to more than a vague
+            claim that I write code. This page is the proof layer: product work,
+            long-running systems, independent builds, and the kind of ownership I
+            am comfortable carrying from UI to infrastructure.
           </p>
         </div>
 
@@ -119,6 +172,18 @@ const valueSignals = [
             <li v-for="signal in valueSignals" :key="signal">{{ signal }}</li>
           </ul>
         </aside>
+      </section>
+
+      <section class="experience-grid">
+        <article
+          v-for="item in experienceHighlights"
+          :key="item.title"
+          class="experience-card"
+        >
+          <p class="project-badge">Experience snapshot</p>
+          <h2>{{ item.title }}</h2>
+          <p>{{ item.body }}</p>
+        </article>
       </section>
 
       <section class="featured-project">
@@ -142,6 +207,10 @@ const valueSignals = [
               {{ item }}
             </span>
           </div>
+
+          <ul class="proof-list">
+            <li v-for="item in featuredProject.proof" :key="item">{{ item }}</li>
+          </ul>
 
           <a class="project-link" :href="featuredProject.url" target="_blank" rel="noreferrer">
             Visit project
@@ -168,11 +237,33 @@ const valueSignals = [
               </span>
             </div>
 
+            <ul class="proof-list compact">
+              <li v-for="item in project.proof" :key="item">{{ item }}</li>
+            </ul>
+
             <a class="project-link subtle" :href="project.url" target="_blank" rel="noreferrer">
               Open project
             </a>
           </div>
         </article>
+      </section>
+
+      <section class="projects-cta">
+        <div>
+          <p class="panel-kicker">Next step</p>
+          <h2>If you need someone who can ship and untangle systems, let’s talk.</h2>
+          <p>
+            I’m most useful on products that already matter: the ones with users,
+            constraints, moving parts, and no appetite for fragile engineering.
+          </p>
+        </div>
+
+        <div class="cta-actions">
+          <a class="project-link" href="" @click.prevent="openEmail">Email me</a>
+          <a class="project-link subtle" :href="githubUrl" target="_blank" rel="noreferrer">
+            View GitHub
+          </a>
+        </div>
       </section>
     </v-container>
   </section>
@@ -190,7 +281,9 @@ const valueSignals = [
 
 .projects-hero,
 .featured-project,
-.project-card {
+.project-card,
+.experience-card,
+.projects-cta {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 28px;
   background:
@@ -224,7 +317,8 @@ const valueSignals = [
 .hero-copy,
 .hero-panel,
 .project-copy,
-.project-card-copy {
+.project-card-copy,
+.experience-card {
   position: relative;
   z-index: 1;
 }
@@ -283,6 +377,33 @@ const valueSignals = [
   padding-top: 0;
 }
 
+.experience-grid {
+  display: grid;
+  gap: 22px;
+
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.experience-card {
+  padding: 24px;
+}
+
+.experience-card h2 {
+  color: #fff8eb;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 10px 0 12px;
+}
+
+.experience-card p:last-child {
+  color: rgba(255, 255, 255, 0.74);
+  line-height: 1.7;
+}
+
 .featured-project {
   display: grid;
   gap: 0;
@@ -317,7 +438,8 @@ const valueSignals = [
 }
 
 .project-copy h2,
-.project-card-copy h2 {
+.project-card-copy h2,
+.projects-cta h2 {
   color: #fff8eb;
   font-size: clamp(1.8rem, 4vw, 2.7rem);
   font-weight: 800;
@@ -327,6 +449,11 @@ const valueSignals = [
 
 .project-card-copy h2 {
   font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.projects-cta h2 {
+  margin: 8px 0 12px;
+  max-width: 14ch;
 }
 
 .project-category {
@@ -340,9 +467,14 @@ const valueSignals = [
   line-height: 1.65;
 }
 
-.project-detail {
+.project-detail,
+.projects-cta p:last-child {
   color: rgba(255, 255, 255, 0.66);
   line-height: 1.7;
+}
+
+.projects-cta p:last-child {
+  max-width: 56ch;
 }
 
 .project-stack {
@@ -350,6 +482,19 @@ const valueSignals = [
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 8px;
+}
+
+.proof-list {
+  color: rgba(255, 248, 235, 0.78);
+  display: grid;
+  gap: 10px;
+  line-height: 1.6;
+  margin: 4px 0 0;
+  padding-left: 18px;
+}
+
+.proof-list.compact {
+  font-size: 0.96rem;
 }
 
 .stack-pill {
@@ -398,5 +543,23 @@ const valueSignals = [
 .project-card {
   display: grid;
   overflow: hidden;
+}
+
+.projects-cta {
+  display: grid;
+  gap: 20px;
+  padding: 28px;
+
+  @media (min-width: 900px) {
+    align-items: center;
+    grid-template-columns: minmax(0, 1.3fr) auto;
+    padding: 34px;
+  }
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 </style>

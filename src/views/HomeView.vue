@@ -4,6 +4,14 @@
     import InteractiveTechStack from "@/components/InteractiveTechStack.vue";
 
     const yearsDoingIt = new Date().getFullYear() - 2012;
+    const githubUrl = "https://github.com/mdahlke";
+    const emailUser = ["madahlke", "27"].join("");
+    const emailDomain = ["gmail", "com"].join(".");
+    const emailSubject = encodeURIComponent("Project inquiry from michaeldahlke.com");
+    const emailHref = `mailto:${emailUser}@${emailDomain}?subject=${emailSubject}`;
+    const openEmail = () => {
+        window.location.href = emailHref;
+    };
 
     const currentFocus = [
         {
@@ -33,6 +41,21 @@
         "Build maintainable features before clever abstractions.",
         "Treat infrastructure, UX, and code quality as one job.",
     ];
+
+    const proofPoints = [
+        {
+            title: "Legacy modernization that actually ships",
+            body: "Migrated mature PHP systems forward while the business kept moving, including substantial compatibility work across older patterns and newer runtime expectations.",
+        },
+        {
+            title: "Payments and failure states",
+            body: "Comfortable owning revenue-sensitive flows, third-party integrations, and the ugly edge cases that show up when transactions, retries, and user trust all collide.",
+        },
+        {
+            title: "Debugging beyond the app layer",
+            body: "Homelab and infrastructure work made me better at tracing problems across code, containers, networking, storage, and production behavior instead of stopping at the first stack trace.",
+        },
+    ];
 </script>
 
 <template>
@@ -40,16 +63,25 @@
         <v-container class="home-container">
             <section class="hero-panel">
                 <div class="hero-copy">
-                    <p class="eyebrow">Web developer, systems thinker, practical builder</p>
+                    <p class="eyebrow">Senior full-stack engineer</p>
                     <h1 class="title-text">Michael Dahlke</h1>
+                    <p class="hero-specialty">
+                        Specializing in ticketing platforms, payment flows,
+                        legacy modernization, and Vue/Laravel systems that need to
+                        stay reliable while they evolve.
+                    </p>
                     <p class="hero-lead">
-                        I build reliable web products with a bias toward clarity, strong
-                        foundations, and shipping work that keeps paying off after launch.
+                        I build production web software with a bias toward clarity,
+                        maintainability, and shipping work that still pays off after launch.
+                        My sweet spot is full-stack product engineering where frontend,
+                        backend, infrastructure, and business constraints all matter at the
+                        same time.
                     </p>
 
                     <div class="hero-actions">
-                        <router-link class="primary-action" to="/projects">See projects</router-link>
-                        <a class="secondary-action" href="mailto:hello@michaeldahlke.com">Say hello</a>
+                        <router-link class="primary-action" to="/projects">View selected work</router-link>
+                        <a class="secondary-action" :href="githubUrl" target="_blank" rel="noreferrer">GitHub</a>
+                        <a class="secondary-action" href="" @click.prevent="openEmail">Email me</a>
                     </div>
 
                     <div class="hero-metrics">
@@ -58,12 +90,12 @@
                             <span>years building for the web</span>
                         </article>
                         <article>
-                            <strong>Full stack</strong>
-                            <span>frontend, backend, infrastructure</span>
+                            <strong>Payments + APIs</strong>
+                            <span>revenue-sensitive flows and integrations</span>
                         </article>
                         <article>
-                            <strong>Hands on</strong>
-                            <span>shipping products, not just prototypes</span>
+                            <strong>Full ownership</strong>
+                            <span>frontend, backend, infrastructure, delivery</span>
                         </article>
                     </div>
                 </div>
@@ -73,18 +105,36 @@
                     <div class="signal-list">
                         <div class="signal-item">
                             <span class="signal-name">Core stack</span>
-                            <p>Laravel, Vue, APIs, and operational glue that keeps projects moving.</p>
+                            <p>Laravel, Vue, APIs, and the operational glue that keeps product teams moving.</p>
                         </div>
                         <div class="signal-item">
                             <span class="signal-name">Sweet spot</span>
-                            <p>Cleaning up legacy surfaces while still delivering new product value.</p>
+                            <p>Modernizing legacy surfaces while still delivering meaningful new product value.</p>
                         </div>
                         <div class="signal-item">
-                            <span class="signal-name">Side energy</span>
-                            <p>Homelab systems, automation, media tooling, and hardware-adjacent experiments.</p>
+                            <span class="signal-name">Best fit</span>
+                            <p>Teams that need someone comfortable moving between product detail, systems design, and production reality.</p>
                         </div>
                     </div>
                 </aside>
+            </section>
+
+            <section class="section-block proof-panel">
+                <div class="section-heading">
+                    <p class="section-kicker">Proof</p>
+                    <h2>What I actually bring to a team</h2>
+                    <p>
+                        The site should do more than say I write code. These are the areas
+                        where my experience is strongest and most useful.
+                    </p>
+                </div>
+
+                <div class="proof-grid">
+                    <article v-for="item in proofPoints" :key="item.title" class="proof-card">
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.body }}</p>
+                    </article>
+                </div>
             </section>
 
             <section class="section-block">
@@ -170,6 +220,7 @@
     .hero-copy,
     .hero-card,
     .section-heading,
+    .proof-card,
     .principle-card {
         position: relative;
         z-index: 1;
@@ -199,6 +250,15 @@
         letter-spacing: -0.04em;
         line-height: 0.94;
         text-wrap: balance;
+    }
+
+    .hero-specialty {
+        color: $yellow;
+        font-size: clamp(1.02rem, 2.4vw, 1.2rem);
+        font-weight: 800;
+        line-height: 1.5;
+        margin-top: 18px;
+        max-width: 48rem;
     }
 
     .hero-lead {
@@ -302,6 +362,7 @@
 
     .signal-item p,
     .section-heading p,
+    .proof-card p,
     .principle-card p {
         color: rgba(255, 255, 255, 0.74);
     }
@@ -329,15 +390,46 @@
     }
 
     .stack-grid,
-    .principles-grid {
+    .principles-grid,
+    .proof-grid {
         display: grid;
         gap: 18px;
+    }
+
+    .proof-panel {
+        background:
+            radial-gradient(circle at top left, rgba(229, 86, 67, 0.12), transparent 30%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+            rgba(10, 14, 14, 0.72);
+    }
+
+    .proof-grid {
+        @media (min-width: 900px) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
     }
 
     .stack-grid {
         @media (min-width: 900px) {
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
+    }
+
+    .proof-card,
+    .principle-card {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.04);
+        min-height: 150px;
+        padding: 22px;
+    }
+
+    .proof-card h3 {
+        color: #fff8eb;
+        font-size: 1.2rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin-bottom: 10px;
     }
 
     .principles-panel {
@@ -357,13 +449,5 @@
         @media (min-width: 900px) {
             grid-template-columns: repeat(3, minmax(0, 1fr));
         }
-    }
-
-    .principle-card {
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 22px;
-        background: rgba(255, 255, 255, 0.04);
-        min-height: 150px;
-        padding: 22px;
     }
 </style>
