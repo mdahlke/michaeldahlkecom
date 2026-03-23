@@ -15,15 +15,15 @@ const messages = ref<Message[]>([
     id: messageId.value++,
     role: "assistant",
     text:
-      "I’m Michael’s portfolio assistant. Ask about projects, tech stack, experience, or what kind of work he likes doing.",
+      "Ask me about Michael's work and I’ll give you the useful version. Projects, stack, HoldMyTicket, legacy migrations, payments, homelab stuff, whatever is most relevant.",
   },
 ]);
 
 const promptChips = [
-  "What projects stand out?",
-  "What stack does Michael use most?",
-  "What kind of work does he enjoy?",
-  "What’s his background?",
+  "What did Michael do at HoldMyTicket?",
+  "What kind of engineer is he?",
+  "How does he handle legacy systems?",
+  "What stands out technically?",
 ];
 const errorMessage = ref("");
 const canSend = computed(() => !!input.value.trim() && !isThinking.value);
@@ -104,10 +104,10 @@ async function submitMessage(raw?: string) {
   <section class="ai-chat">
     <div class="chat-intro">
       <p class="chat-kicker">Portfolio assistant</p>
-      <h2>Ask the site what Michael is actually good at</h2>
+      <h2>Ask the site for the non-generic version</h2>
       <p>
-        Ask about projects, stack, experience, or the kind of work I enjoy
-        doing most.
+        Ask about projects, stack, HoldMyTicket, migrations, payment flows, or
+        the kind of engineering work Michael is best at.
       </p>
     </div>
 
@@ -116,8 +116,8 @@ async function submitMessage(raw?: string) {
         <div class="agent-badge">
           <span class="agent-dot" />
           <div>
-            <strong>Michael AI</strong>
-            <p>Portfolio guide, project explainer, stack summary</p>
+            <strong>Michael, summarized</strong>
+            <p>Portfolio guide, project translator, less robotic than usual</p>
           </div>
         </div>
 
@@ -162,7 +162,7 @@ async function submitMessage(raw?: string) {
             id="portfolio-chat"
             v-model="input"
             type="text"
-            placeholder="Ask about projects, stack, or experience"
+            placeholder="Ask about HoldMyTicket, Vue/Laravel, payments, or debugging"
           />
           <button type="submit" :disabled="!canSend">Send</button>
         </form>
