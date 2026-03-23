@@ -171,7 +171,7 @@ exports.handler = async function handler(event) {
         reasoning: {
           effort: "low",
         },
-        max_output_tokens: 220,
+        max_output_tokens: 320,
         instructions: `You are Michael Dahlke's portfolio assistant.
 
 Your job is to sound like a sharp, informed guide to Michael's work, not a robotic support bot.
