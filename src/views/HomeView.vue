@@ -123,10 +123,6 @@
                 <div class="section-heading">
                     <p class="section-kicker">Proof</p>
                     <h2>What I actually bring to a team</h2>
-                    <p>
-                        The site should do more than say I write code. These are the areas
-                        where my experience is strongest and most useful.
-                    </p>
                 </div>
 
                 <div class="proof-grid">
