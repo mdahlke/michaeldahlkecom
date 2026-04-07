@@ -16,7 +16,7 @@
     const currentFocus = [
         {
             title: "Building with",
-            langs: ["Laravel", "Vue.js", "Nuxt.js", "Vuetify"],
+            langs: ["Laravel", "Vue.js", "Nuxt.js", "Vuetify", "React"],
             titlePosition: "left" as const,
         },
         {
@@ -26,7 +26,7 @@
         },
         {
             title: "Tinkering on",
-            langs: ["Proxmox", "n8n", "ESP32", "Jellyfin", "TrueNAS", "3D Printing"],
+            langs: ["Proxmox", "n8n", "ESP32", "HomeAssistant", "TrueNAS", "3D Printing"],
             titlePosition: "left" as const,
         },
         {
