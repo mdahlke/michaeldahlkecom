@@ -138,9 +138,6 @@ app.post("/api/portfolio-chat", async (req, res) => {
       },
       body: JSON.stringify({
         model: process.env.OPENAI_MODEL || "gpt-4o-mini",
-        reasoning: {
-          effort: "low",
-        },
         max_output_tokens: 320,
         instructions: `You are Michael Dahlke's portfolio assistant.
 
