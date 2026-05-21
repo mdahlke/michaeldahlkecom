@@ -12,7 +12,7 @@ const router = createRouter({
         {
             path: '/llm',
             name: 'LLM',
-            component: () => import('../views/LLM.vue')
+            component: () => import('../views/LLMView.vue')
         },
         {
             path: '/about',
