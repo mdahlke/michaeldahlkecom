@@ -8,6 +8,9 @@ import vuetify from 'vite-plugin-vuetify'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    port: 5183,
+  },
   plugins: [
     vue(),
     vuetify({
