@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.\\(ts|js|vue|toml|json|conf\\)$\")",
+      "Bash(npm install *)"
+    ]
+  }
+}

@@ -27,7 +27,7 @@ const promptChips = [
 ];
 const errorMessage = ref("");
 const canSend = computed(() => !!input.value.trim() && !isThinking.value);
-const assistantEndpoint = `${window.location.origin}/.netlify/functions/portfolio-chat`;
+const assistantEndpoint = "/api/portfolio-chat";
 
 async function appendAssistantReply() {
   isThinking.value = true;
@@ -61,9 +61,7 @@ async function appendAssistantReply() {
     if (!response.ok || !data.reply) {
       throw new Error(
         data.error ||
-          (response.status === 404
-            ? "The Netlify function endpoint was not found. Make sure Netlify Dev is running and the functions server started correctly."
-            : "The assistant could not answer that right now."),
+          "The assistant could not answer that right now.",
       );
     }
 
