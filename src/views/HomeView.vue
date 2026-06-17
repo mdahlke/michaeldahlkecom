@@ -5,8 +5,8 @@
 
     const yearsDoingIt = new Date().getFullYear() - 2012;
     const githubUrl = "https://github.com/mdahlke";
-    const emailUser = ["madahlke", "27"].join("");
-    const emailDomain = ["gmail", "com"].join(".");
+    const emailUser = ["me", ""].join("");
+    const emailDomain = ["michaeldahlke", "com"].join(".");
     const emailSubject = encodeURIComponent("Project inquiry from michaeldahlke.com");
     const emailHref = `mailto:${emailUser}@${emailDomain}?subject=${emailSubject}`;
     const openEmail = () => {
