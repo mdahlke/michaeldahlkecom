@@ -106,12 +106,6 @@ function extractOutputText(data) {
 
 const app = express();
 app.use(express.json());
-app.use((err, req, res, next) => {
-  if (err.type === "entity.parse.failed") {
-    return res.status(400).json({ error: "Invalid JSON" });
-  }
-  next(err);
-});
 app.use(express.static(path.join(__dirname, "dist")));
 
 app.post("/api/portfolio-chat", async (req, res) => {
@@ -185,6 +179,19 @@ ${knowledgeBase}`,
 // SPA fallback — Vue Router handles client-side routing
 app.get("/{*splat}", (req, res) => {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
+
+// Final error handler. Malformed URLs (e.g. bot probes like "/%C0") and bad
+// JSON bodies are client errors — answer 400 without dumping a stack trace.
+app.use((err, req, res, next) => {
+  if (res.headersSent) {
+    return next(err);
+  }
+  if (err instanceof URIError || err.status === 400) {
+    return res.status(400).send(err.type === "entity.parse.failed" ? "Invalid JSON" : "Bad Request");
+  }
+  console.error(err);
+  res.status(err.status || 500).send("Internal Server Error");
 });
 
 const PORT = process.env.PORT || 3000;
